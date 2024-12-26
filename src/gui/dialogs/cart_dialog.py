@@ -9,6 +9,7 @@ from src.gui.create_components import CreateComponents
 
 class CartDialog(BaseDialog):
     def __init__(self, parent: tk.Widget, cart_names: List[str]):
+        self._create_button = CreateComponents.create_button
         super().__init__(parent)
         self.entry = None
         self.new_cart_var = None
@@ -20,7 +21,6 @@ class CartDialog(BaseDialog):
         self.result = None
         self.delete = False
 
-        self._create_button = CreateComponents.create_button
 
     def create_widgets(self):
         """Cria os widgets do diálogo."""
@@ -55,6 +55,7 @@ class CartDialog(BaseDialog):
 
         self._create_button(
             button_frame,
+            width=10,
             text="Confirmar",
             command=self._confirm,
             side=tk.LEFT
@@ -62,6 +63,7 @@ class CartDialog(BaseDialog):
 
         self._create_button(
             button_frame,
+            width=10,
             text="Deletar",
             command=self._delete,
             side=tk.LEFT
@@ -69,6 +71,7 @@ class CartDialog(BaseDialog):
 
         self._create_button(
             button_frame,
+            width=10,
             text="Cancelar",
             command=self._cancel,
             side=tk.LEFT
